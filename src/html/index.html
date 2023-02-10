@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/index">SportMarket</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sportmarket.auth.us-east-2.amazoncognito.com/oauth2/authorize?client_id=54chs7gjecfm4lqlcbi29uv797&response_type=code&scope=email+openid&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2FSportMarketWebApp%2Findex.html">Login/Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=
+                            "https://sportmarket.auth.us-east-2.amazoncognito.com/logout?logout_uri=http://localhost:3000/SportMarketWebApp/index.html&response_type=code&client_id=54chs7gjecfm4lqlcbi29uv797"
+                    >Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<br>
+<button onclick="window.location.href='/portfolio'">View Portfolio</button>
+
+<p id="my-text"></p>
+
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1312.0.min.js"></script>
+
+<script>
+    const AWS = require('aws-sdk');
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    accessToken = url.searchParams.get("code");
+
+    // function checkLogin() {
+    //     var url_string = window.location.href;
+    //     var url = new URL(url_string);
+    //     accessToken = url.searchParams.get("code");
+    //     if (accessToken != null) {
+    //         auth();
+    //     }
+    // }
+
+    AWS.config.region = "us-east-2"
+
+    var cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider({ apiVersion: "2016-04-18" });
+
+    var params = {
+        AccessToken: accessToken
+    }
+
+    cognitoIdentityServiceProvider.getUser(params, function(err, data) {
+        if (err)
+        {
+            console.log("User not signed in")
+        }
+        else
+        {
+            console.log(data.UserAttributes)
+        }
+    })
+
+
+    // function auth() {
+    //     AWS.config.update({
+    //         region: "us-east-2",
+    //         //  endpoint: 'http://localhost:8000',
+    //         //  accessKeyId: "(ACCESS_KEY_ID)",
+    //         //  secretAccessKey: "(SECRET_ACCESS_KEY)"
+    //
+    //     });
+    //
+    //     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+    //         IdentityPoolId : 'us-east-2:788258985478',
+    //         Logins : {
+    //             "cognito-idp.us-east-2.amazonaws.com/us-east-2_ewhbdQX8R": idToken
+    //         }
+    //     });
+    // }
+    // checkLogin()
+
+    // Get a reference to the HTML element
+    var textElement = document.getElementById("my-text");
+
+    // Set the text content of the HTML element
+    textElement.textContent = accessToken
+
+
+
+</script>
+<script src="../js/functions.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
