@@ -1,33 +1,82 @@
 var express = require("express");
-var app = express();
+require('dotenv').config();
 var router = express.Router();
-var path = __dirname + '/views/';
+var app = express();
+const { auth } = require('express-openid-connect');
+const { requiresAuth } = require('express-openid-connect');
 
-router.use(function (req,res,next) {
-    console.log("/" + req.method);
-    next();
+
+const {engine} = require("express-handlebars");
+
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set("views", "./src/views");
+
+app.use(
+    auth({
+        authRequired: false,
+        auth0Logout: true,
+        issuerBaseURL: process.env.ISSUER_BASE_URL,
+        baseURL: process.env.BASE_URL,
+        clientID: process.env.CLIENT_ID,
+        secret: process.env.SECRET,
+        routes: {
+            login: false,
+            logout: false
+        }
+    })
+)
+
+app.get('/login', (req, res) =>
+    res.oidc.login({
+        returnTo: '/profile',
+        authorizationParams: {
+            redirect_uri: 'http://localhost:3000/callback',
+        },
+    })
+
+);
+
+app.get('/logout', (req, res) =>
+    res.oidc.logout({
+        returnTo: '/home',
+        authorizationParams: {
+            redirect_uri: 'http://localhost:3000/home',
+        },
+    })
+);
+
+app.get('/profile', requiresAuth(), (req, res) => {
+    console.log(req.oidc.user)
+    res.render('profile',
+        {layout : 'main', user: req.oidc.user});
 });
 
-router.get("/",function(req,res){
-    res.sendFile(__dirname + "/src/html/index.html");
+app.get('/', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
-router.get("/index",function(req,res){
-    res.sendFile(__dirname + "/src/html/index.html");
+// router.use(function (req,res,next) {
+//     console.log("/" + req.method);
+//     next();
+// });
+
+app.get('/home', (req, res) => {
+    res.render('home', {layout : 'main'});
 });
 
-router.get("/portfolio",function(req,res){
-    res.sendFile(__dirname + "/src/html/portfolio.html");
+app.get('/portfolio', requiresAuth(), (req, res) => {
+    res.render('portfolio',
+        {layout : 'main', user: req.oidc.user});
+
 });
-
-
 
 app.use("/",router);
 
 app.use("*",function(req,res){
-    res.sendFile(path + "404.html");
+    res.sendFile(__dirname + "/src/html/404.html");
 });
 
 app.listen(3000,function(){
-    console.log("Live at Port 3000");
+    console.log("Live at Port 3000 http://localhost:3000/home");
 });
