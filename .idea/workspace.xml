@@ -4,29 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="node/express integration">
-      <change afterPath="$PROJECT_DIR$/src/html/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/home.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/layouts/main.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/partials/navbar.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/portfolio.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/profile.handlebars" afterDir="false" />
+    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="major changes including implementation of handlebars">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/ticker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/partials/ticker.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/portfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/portfolio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/home.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,28 +43,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propDebugger",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propDebugger&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\david\Desktop\SportMarketWebApp\src" />
       <recent name="C:\Users\david\Desktop\SportMarketWebApp\src\html" />
+      <recent name="C:\Users\david\Desktop\SportMarketWebApp\src" />
       <recent name="C:\Users\david\Desktop\SportMarketWebApp" />
       <recent name="C:\Users\david\Desktop\SportMarketWebApp\js" />
       <recent name="C:\Users\david\Desktop\SportMarketWebApp\src\cognito" />
@@ -115,7 +98,8 @@
       <updated>1675816980450</updated>
       <workItem from="1675816983333" duration="1202000" />
       <workItem from="1675869808139" duration="20923000" />
-      <workItem from="1676000958949" duration="43307000" />
+      <workItem from="1676000958949" duration="44175000" />
+      <workItem from="1676301218831" duration="1789000" />
     </task>
     <task id="LOCAL-00001" summary="authentication">
       <created>1675871701867</created>
@@ -145,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676005550972</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="major changes including implementation of handlebars">
+      <created>1676263398897</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676263398897</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +168,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="authentication" />
     <MESSAGE value="node/express integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="node/express integration" />
+    <MESSAGE value="major changes including implementation of handlebars" />
+    <option name="LAST_COMMIT_MESSAGE" value="major changes including implementation of handlebars" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
