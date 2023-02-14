@@ -29,7 +29,7 @@ app.use(
 
 app.get('/login', (req, res) =>
     res.oidc.login({
-        returnTo: '/profile',
+        returnTo: '/trade',
         authorizationParams: {
             redirect_uri: 'http://localhost:3000/callback',
         },
@@ -52,17 +52,16 @@ app.get('/profile', requiresAuth(), (req, res) => {
         {layout : 'main', user: req.oidc.user});
 });
 
-app.get('/', (req, res) => {
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
-
-// router.use(function (req,res,next) {
-//     console.log("/" + req.method);
-//     next();
+// app.get('/', (req, res) => {
+//     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 // });
 
 app.get('/home', (req, res) => {
     res.render('home', {layout : 'main', user: req.oidc.user});
+});
+
+app.get('/trade', requiresAuth(), (req, res) => {
+    res.render('trade', {layout : 'main', user: req.oidc.user});
 });
 
 app.get('/portfolio', requiresAuth(), (req, res) => {
