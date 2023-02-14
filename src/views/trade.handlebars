@@ -29,6 +29,20 @@
     <button type="button" class="btn btn-secondary" style="margin: 5px">Sell</button>
 </div>
 
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button">Action</button>
+        <button class="dropdown-item" type="button">Another action</button>
+        <button class="dropdown-item" type="button">Something else here</button>
+        <button class="dropdown-item" type="button">Something else here</button>
+        <button class="dropdown-item" type="button">Something else here</button>
+    </div>
+</div>
+
+
 <script>
     var user_balance;
     async function getPrices() {
@@ -75,7 +89,7 @@
         }).then(response => response.text())
                 .then(data => {
                     user_balance = JSON.parse(data)
-                    document.getElementById("balanceField").innerHTML = "Balance: " + parseFloat(user_balance);
+                    document.getElementById("balanceField").innerHTML = "Balance: $" + parseFloat(user_balance);
                 });
 
     }

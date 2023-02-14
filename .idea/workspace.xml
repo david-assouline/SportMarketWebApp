@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="major changes including implementation of handlebars">
-      <change afterPath="$PROJECT_DIR$/src/views/trade.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partials/navbar.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/navbar.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/partials/ticker.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/ticker.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/trade.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/trade.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,7 @@
       <workItem from="1675816983333" duration="1202000" />
       <workItem from="1675869808139" duration="20923000" />
       <workItem from="1676000958949" duration="44175000" />
-      <workItem from="1676301218831" duration="11347000" />
+      <workItem from="1676301218831" duration="14093000" />
     </task>
     <task id="LOCAL-00001" summary="authentication">
       <created>1675871701867</created>
@@ -151,7 +148,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676355778301</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="major changes including implementation of handlebars">
+      <created>1676388465249</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1676388465249</updated>
+    </task>
+    <task id="LOCAL-00009" summary="major changes including implementation of handlebars">
+      <created>1676388483214</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1676388483214</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
