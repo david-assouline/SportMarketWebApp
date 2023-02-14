@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 // });
 
 app.get('/home', (req, res) => {
-    res.render('home', {layout : 'main'});
+    res.render('home', {layout : 'main', user: req.oidc.user});
 });
 
 app.get('/portfolio', requiresAuth(), (req, res) => {
