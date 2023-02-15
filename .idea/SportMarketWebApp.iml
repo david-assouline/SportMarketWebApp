@@ -5,5 +5,11 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="aws-sdk-2.734.0" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="aws-sdk-2.7.16" level="application" />
+    <orderEntry type="library" name="aws-sdk" level="application" />
+    <orderEntry type="library" name="aws-sdk-2.1312.0" level="application" />
+    <orderEntry type="library" name="aws-sdk-2.766.0" level="application" />
   </component>
 </module>
