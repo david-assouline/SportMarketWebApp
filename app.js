@@ -52,7 +52,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
         {layout : 'main', user: req.oidc.user});
 });
 
-app.get('/home', (req, res) => {
+app.get('/home' || "", (req, res) => {
     res.render('home', {layout : 'main'});
 });
 

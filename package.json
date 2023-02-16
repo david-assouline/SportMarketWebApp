@@ -1,11 +1,4 @@
 {
-  "name": "sportmarket-webapp",
-  "version": "1.0.0",
-  "description": "SportMarket Web App",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
   "dependencies": {
     "aws-amplify": "^5.0.14",
     "aws-sdk": "^2.1313.0",
