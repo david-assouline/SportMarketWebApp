@@ -53,7 +53,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-    res.render('home', {layout : 'main', user: req.oidc.user});
+    res.render('home', {layout : 'main'});
 });
 
 app.get('/trade', requiresAuth(), (req, res) => {
