@@ -60,6 +60,8 @@ app.get('/', (req, res) => {
     res.render('home', {layout : 'main'});
 });
 
+app.use("/",router);
+
 app.get('/trade', requiresAuth(), (req, res) => {
     res.render('trade', {layout : 'main', user: req.oidc.user});
 });
