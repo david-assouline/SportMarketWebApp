@@ -31,7 +31,7 @@ app.get('/login', (req, res) =>
     res.oidc.login({
         returnTo: '/portfolio',
         authorizationParams: {
-            redirect_uri: 'http://localhost:3000/callback',
+            redirect_uri: 'https://sportmarket-webapp.herokuapp.com/callback',
         },
     })
 
@@ -41,7 +41,7 @@ app.get('/logout', (req, res) =>
     res.oidc.logout({
         returnTo: '/home',
         authorizationParams: {
-            redirect_uri: 'http://localhost:3000/home',
+            redirect_uri: 'https://sportmarket-webapp.herokuapp.com/home',
         },
     })
 );
