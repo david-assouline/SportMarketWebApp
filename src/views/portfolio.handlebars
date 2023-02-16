@@ -49,7 +49,7 @@
                     <input type="text" class="form-control" id="totalBuyCost" value="0.00" readonly>
                     <br>
                     <div style="text-align: center">
-                        <button type="button" class="btn btn-dark">Confirm Order</button>
+                        <button type="submit" class="btn btn-dark" onclick="submitBuyOrder()">Confirm Buy Order</button>
                     </div>
                     <br>
                 </div>
@@ -72,7 +72,7 @@
                     <input type="text" class="form-control" id="totalSell" value="0.00" readonly>
                     <br>
                     <div style="text-align: center">
-                        <button type="submit" class="btn btn-dark">Confirm Order</button>
+                        <button type="submit" class="btn btn-dark" onclick="">Confirm Sell Order</button>
                     </div>
                     <br>
                 </div>
@@ -192,9 +192,7 @@
     }
 
     function calculateBuyPrice() {
-        var dropdown = document.getElementById("buyTeamDropdown");
-        var dropdownValue = dropdown.value;
-
+        var dropdownValue = document.getElementById("buyTeamDropdown").value;
         var calculateBuyField = document.getElementById("totalBuyCost");
         calculateBuyField.value = price_data[dropdownValue] * document.getElementById("buyQuantity").value;
     }
@@ -205,6 +203,25 @@
 
         var calculateBuyField = document.getElementById("totalSell");
         calculateBuyField.value = price_data[dropdownValue] * document.getElementById("sellQuantity").value;
+    }
+
+    function submitBuyOrder() {
+        const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/buy';
+        const queryParams = {
+            user_id: "{{user.sub}}",
+            team_name: document.getElementById("buyTeamDropdown").value,
+            quantity: document.getElementById("buyQuantity").value
+        };
+
+        const queryString = new URLSearchParams(queryParams).toString();
+        const url = `${baseUrl}?${queryString}`;
+
+        fetch(url, {
+            method: 'POST',
+        }).then(response => response.text())
+                .then(data => {
+                    console.log(data)
+                });
     }
 
 </script>

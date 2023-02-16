@@ -29,7 +29,7 @@ app.use(
 
 app.get('/login', (req, res) =>
     res.oidc.login({
-        returnTo: '/trade',
+        returnTo: '/portfolio',
         authorizationParams: {
             redirect_uri: 'http://localhost:3000/callback',
         },
@@ -52,10 +52,6 @@ app.get('/profile', requiresAuth(), (req, res) => {
         {layout : 'main', user: req.oidc.user});
 });
 
-// app.get('/', (req, res) => {
-//     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-// });
-
 app.get('/home', (req, res) => {
     res.render('home', {layout : 'main', user: req.oidc.user});
 });
@@ -76,6 +72,6 @@ app.use("*",function(req,res){
     res.sendFile(__dirname + "/src/html/404.html");
 });
 
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000, function(){
     console.log("Live at Port 3000 http://localhost:3000/home");
 });
