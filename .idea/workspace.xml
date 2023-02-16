@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="commit before amplify and change port number" />
+    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="commit before amplify and change port number">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +97,7 @@
       <workItem from="1676000958949" duration="44175000" />
       <workItem from="1676301218831" duration="14093000" />
       <workItem from="1676488621957" duration="6958000" />
-      <workItem from="1676555406974" duration="3864000" />
+      <workItem from="1676555406974" duration="4865000" />
     </task>
     <task id="LOCAL-00001" summary="authentication">
       <created>1675871701867</created>
@@ -181,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676559999747</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit before amplify and change port number">
+      <created>1676560329349</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1676560329349</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
