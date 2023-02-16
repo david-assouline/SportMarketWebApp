@@ -52,7 +52,11 @@ app.get('/profile', requiresAuth(), (req, res) => {
         {layout : 'main', user: req.oidc.user});
 });
 
-app.get('/home' || "", (req, res) => {
+app.get('/home', (req, res) => {
+    res.render('home', {layout : 'main'});
+});
+
+app.get('/', (req, res) => {
     res.render('home', {layout : 'main'});
 });
 
@@ -66,7 +70,7 @@ app.get('/portfolio', requiresAuth(), (req, res) => {
 
 });
 
-app.use("/",router);
+
 
 app.use("*",function(req,res){
     res.sendFile(__dirname + "/src/html/404.html");

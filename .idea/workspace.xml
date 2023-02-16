@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="commit before amplify and change port number">
+    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="testing CI Heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,7 @@
       <workItem from="1676000958949" duration="44175000" />
       <workItem from="1676301218831" duration="14093000" />
       <workItem from="1676488621957" duration="6958000" />
-      <workItem from="1676555406974" duration="6849000" />
+      <workItem from="1676555406974" duration="7478000" />
     </task>
     <task id="LOCAL-00001" summary="authentication">
       <created>1675871701867</created>
@@ -198,7 +198,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676561750285</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="testing CI Heroku">
+      <created>1676563662529</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1676563662529</updated>
+    </task>
+    <task id="LOCAL-00016" summary="testing CI Heroku">
+      <created>1676563888950</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1676563888950</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +249,7 @@
     <MESSAGE value="commit before amplify integration" />
     <MESSAGE value="changed port" />
     <MESSAGE value="commit before amplify and change port number" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit before amplify and change port number" />
+    <MESSAGE value="testing CI Heroku" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing CI Heroku" />
   </component>
 </project>
