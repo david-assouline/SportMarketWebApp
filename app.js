@@ -72,8 +72,6 @@ app.get('/portfolio', requiresAuth(), (req, res) => {
 
 });
 
-
-
 app.use("*",function(req,res){
     res.sendFile(__dirname + "/src/html/404.html");
 });

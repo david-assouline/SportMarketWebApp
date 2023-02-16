@@ -6,7 +6,7 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body onload="getUserBalance()">
+<body onload="getPortfolio();getUserBalance()">
 
 
 
@@ -91,23 +91,25 @@
     let user_portfolio = new Map();
     let price_data = new Map();
 
-    const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/get_user_portfolio';
-    const queryParams = {
-        user_id: "{{user.sub}}"
-    };
+    function getPortfolio() {
+        const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/get_user_portfolio';
+        const queryParams = {
+            user_id: "{{user.sub}}"
+        };
 
-    const queryString = new URLSearchParams(queryParams).toString();
-    const url = `${baseUrl}?${queryString}`;
+        const queryString = new URLSearchParams(queryParams).toString();
+        const url = `${baseUrl}?${queryString}`;
 
-    // Send the POST request
-    fetch(url, {
-        method: 'GET',
-    }).then(response => response.text())
-            .then(data => {
-                console.log(JSON.parse(data))
-                user_portfolio = new Map(Object.entries(JSON.parse(data)));
-                generateTable()
-            });
+        // Send the POST request
+        fetch(url, {
+            method: 'GET',
+        }).then(response => response.text())
+                .then(data => {
+                    console.log(JSON.parse(data))
+                    user_portfolio = new Map(Object.entries(JSON.parse(data)));
+                    generateTable()
+                });
+    }
 
     async function getPrices() {
 
@@ -156,7 +158,7 @@
         }).then(response => response.text())
                 .then(data => {
                     user_balance = JSON.parse(data)
-                    document.getElementById("balanceField").innerHTML = "Balance: $" + parseFloat(user_balance);
+                    document.getElementById("balanceField").innerHTML = "Cash Balance: $" + parseFloat(user_balance);
                 });
 
     }
