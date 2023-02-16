@@ -140,7 +140,7 @@
             cell1.innerHTML = key;
             cell2.innerHTML = value;
             cell3.innerHTML = price_data[key];
-            cell4.innerHTML = (parseFloat(price_data[key]) * parseFloat(value)).toString();
+            cell4.innerHTML = "$" + (parseFloat(price_data[key]) * parseFloat(value)).toString();
         });
     }
 
