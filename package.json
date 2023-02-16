@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "aws-amplify": "^5.0.14",
     "aws-sdk": "^2.1313.0",
