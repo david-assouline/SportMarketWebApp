@@ -6,17 +6,114 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body onload="getPrices(); getUserBalance()">
+<style>
+    /* (A) FIXED WRAPPER */
+    .hwrap {
+        overflow: hidden; /* HIDE SCROLL BAR */
+        background: #eee;
+    }
+
+    /* (B) MOVING TICKER WRAPPER */
+    .hmove { display: flex; }
+
+    /* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
+    .hitem {
+        flex-shrink: 0;
+        width: 20%;
+        box-sizing: border-box;
+        padding: 5px;
+        text-align: center;
+    }
+
+    /* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+    /* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
+    @keyframes tickerh {
+        0% { transform: translate3d(100%, 0, 0); }
+        100% { transform: translate3d(-300%, 0, 0); }
+    }
+    .hmove { animation: tickerh linear 30s infinite; }
+    .hmove:hover { animation-play-state: paused; }
+
+    .greenTriangle {
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 20px solid green;
+    }
+    .redTriangle {
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 20px solid darkred;
+    }
+</style>
+<body onload="getPrices();getPreviousDayPrices()">
 <br>
-{{> ticker }}
+
+<div class="hwrap"><div class="hmove" id="tickerDiv">
+</div></div>
+
 <br>
-
-<div style="display:flex; padding: 10px; justify-content: center;align-items: center;">
-    <button type="button" class="btn btn-primary" style="margin: 5px"><a href="/login" style="text-decoration: none; color: white">Login/Register</a></button>
-    <button type="button" class="btn btn-secondary" style="margin: 5px"><a href="/logout" style="text-decoration: none; color: white">Logout</a></button>
-</div>
+{{> login_logout_buttons }}
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+<script>
+    var price_data_today;
+    var price_data_yesterday;
+
+    async function getPrices() {
+
+        const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/get_prices';
+
+        const response = await fetch(baseUrl, {
+            method: 'GET',
+        }).then(response => response.text())
+                .then(data => {
+                    price_data_today = new Map(Object.entries(JSON.parse(data)));
+                    console.log(price_data_today);
+                });
+
+        price_data_today.forEach((value, key) => {
+            console.log(key);
+        });
+    }
+
+    async function getPreviousDayPrices() {
+
+        const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/get_previous_day_prices';
+
+        const response = await fetch(baseUrl, {
+            method: 'GET',
+        }).then(response => response.text())
+                .then(data => {
+                    price_data_yesterday = new Map(Object.entries(JSON.parse(data)));
+                    console.log(price_data_yesterday);
+                });
+        loadTicker()
+    }
+
+    function loadTicker() {
+        // Get a reference to the container element
+        var container = document.getElementById("tickerDiv");
+
+        price_data_yesterday.forEach((value, key) => {
+            var newDiv = document.createElement("div");
+            newDiv.className = "hitem";
+            var triangleDiv = document.createElement("triangle");
+            triangleDiv.className = "greenTriangle";
+            newDiv.textContent = key + ": " + value + " ";
+            newDiv.appendChild(triangleDiv)
+            container.appendChild(newDiv);
+        });
+    }
+
+</script>
 </body>
 </html>

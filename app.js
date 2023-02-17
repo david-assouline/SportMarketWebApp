@@ -46,6 +46,25 @@ app.get('/logout', (req, res) =>
     })
 );
 
+// app.get('/login', (req, res) =>
+//     res.oidc.login({
+//         returnTo: '/portfolio',
+//         authorizationParams: {
+//             redirect_uri: 'http://localhost:3000/callback',
+//         },
+//     })
+//
+// );
+//
+// app.get('/logout', (req, res) =>
+//     res.oidc.logout({
+//         returnTo: '/home',
+//         authorizationParams: {
+//             redirect_uri: 'http://localhost:3000/home',
+//         },
+//     })
+// );
+
 app.get('/profile', requiresAuth(), (req, res) => {
     console.log(req.oidc.user)
     res.render('profile',
