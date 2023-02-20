@@ -53,16 +53,13 @@
         border-top: 20px solid darkred;
     }
 </style>
-<body onload="getPrices();getPreviousDayPrices()">
+<body onload="loadTicker()">
 <br>
 
 <div class="hwrap"><div class="hmove" id="tickerDiv">
 </div></div>
 
 <br>
-{{> login_logout_buttons }}
-
-
 
 <script>
     var price_data_today;
@@ -79,10 +76,6 @@
                     price_data_today = new Map(Object.entries(JSON.parse(data)));
                     console.log(price_data_today);
                 });
-
-        price_data_today.forEach((value, key) => {
-            console.log(key);
-        });
     }
 
     async function getPreviousDayPrices() {
@@ -96,21 +89,34 @@
                     price_data_yesterday = new Map(Object.entries(JSON.parse(data)));
                     console.log(price_data_yesterday);
                 });
-        loadTicker()
     }
 
-    function loadTicker() {
-        // Get a reference to the container element
+    async function loadTicker() {
+        await getPrices()
+        await getPreviousDayPrices()
         var container = document.getElementById("tickerDiv");
 
-        price_data_yesterday.forEach((value, key) => {
+        price_data_today.forEach((value, key) => {
             var newDiv = document.createElement("div");
             newDiv.className = "hitem";
             var triangleDiv = document.createElement("triangle");
-            triangleDiv.className = "greenTriangle";
-            newDiv.textContent = key + ": " + value + " ";
-            newDiv.appendChild(triangleDiv)
-            container.appendChild(newDiv);
+
+            console.log(price_data_today.get(key))
+            console.log(price_data_yesterday.get(key))
+
+            if (parseFloat(price_data_today.get(key)) > parseFloat(price_data_yesterday.get(key))) {
+                triangleDiv.className = "greenTriangle";
+                newDiv.textContent = key + ": " + parseFloat(value).toFixed(2) + " ";
+                newDiv.appendChild(triangleDiv)
+                container.appendChild(newDiv);
+            }
+            else if (parseFloat(price_data_today.get(key)) < parseFloat(price_data_yesterday.get(key))) {
+                triangleDiv.className = "redTriangle";
+                newDiv.textContent = key + ": " + parseFloat(value).toFixed(2) + " ";
+                newDiv.appendChild(triangleDiv)
+                container.appendChild(newDiv);
+            }
+
         });
     }
 
