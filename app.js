@@ -45,7 +45,7 @@ app.get('/logout', (req, res) =>
         },
     })
 );
-
+//
 // app.get('/login', (req, res) =>
 //     res.oidc.login({
 //         returnTo: '/portfolio',

@@ -97,22 +97,22 @@
         var container = document.getElementById("tickerDiv");
 
         price_data_today.forEach((value, key) => {
+            var differential;
             var newDiv = document.createElement("div");
             newDiv.className = "hitem";
             var triangleDiv = document.createElement("triangle");
 
-            console.log(price_data_today.get(key))
-            console.log(price_data_yesterday.get(key))
-
             if (parseFloat(price_data_today.get(key)) >= parseFloat(price_data_yesterday.get(key))) {
                 triangleDiv.className = "greenTriangle";
-                newDiv.textContent = key + ": " + parseFloat(value).toFixed(2) + " ";
+                differential = parseFloat(price_data_today.get(key)) - parseFloat(price_data_yesterday.get(key));
+                newDiv.textContent = `${key}: ${parseFloat(value).toFixed(2)} (+${differential.toFixed(2)})`;
                 newDiv.appendChild(triangleDiv)
                 container.appendChild(newDiv);
             }
             else if (parseFloat(price_data_today.get(key)) < parseFloat(price_data_yesterday.get(key))) {
                 triangleDiv.className = "redTriangle";
-                newDiv.textContent = key + ": " + parseFloat(value).toFixed(2) + " ";
+                differential = parseFloat(price_data_yesterday.get(key)) - parseFloat(price_data_today.get(key));
+                newDiv.textContent = `${key}: ${parseFloat(value).toFixed(2)} (-${differential.toFixed(2)})`;
                 newDiv.appendChild(triangleDiv)
                 container.appendChild(newDiv);
             }

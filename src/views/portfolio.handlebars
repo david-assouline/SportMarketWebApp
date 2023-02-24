@@ -142,28 +142,29 @@
             var total_value_cell = row.insertCell(3);
             team_cell.innerHTML = key;
             shares_owned_cell.innerHTML = value;
-            current_price_cell.innerHTML = price_data[key];
+            current_price_cell.innerHTML = parseFloat(price_data[key]).toFixed(2);
             total_value_cell.innerHTML = "$" + (parseFloat(price_data[key]) * parseFloat(value)).toFixed(2).toString();
         });
     }
 
     async function getUserBalance() {
-        const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/get_user_balance';
-        const queryParams = {
-            user_id: "{{user.sub}}"
-        };
+        setTimeout(() => {
+            const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/get_user_balance';
+            const queryParams = {
+                user_id: "{{user.sub}}"
+            };
 
-        const queryString = new URLSearchParams(queryParams).toString();
-        const url = `${baseUrl}?${queryString}`;
+            const queryString = new URLSearchParams(queryParams).toString();
+            const url = `${baseUrl}?${queryString}`;
 
-        fetch(url, {
-            method: 'GET',
-        }).then(response => response.text())
-                .then(data => {
-                    user_balance = JSON.parse(data)
-                    document.getElementById("balanceField").innerHTML = "Cash Balance: $" + parseFloat(user_balance).toFixed(2);
-                });
-
+            fetch(url, {
+                method: 'GET',
+            }).then(response => response.text())
+                    .then(data => {
+                        user_balance = JSON.parse(data)
+                        document.getElementById("balanceField").innerHTML = "Cash Balance: $" + parseFloat(user_balance).toFixed(2);
+                    });
+        }, 1000);
     }
 
     function toggleBuyForm() {
@@ -226,6 +227,7 @@
         }).then(response => response.text())
                 .then(data => {
                     console.log(data)
+
                 });
     }
 

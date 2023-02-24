@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="Heroku deployment">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/home.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/portfolio.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/portfolio.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,19 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="51ab4619-599e-4ea8-834b-380fb993a59b" />
+        <option name="url" value="https://github.com/david-assouline/SportMarketWebApp.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -41,6 +57,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -98,7 +115,9 @@
       <workItem from="1676301218831" duration="14093000" />
       <workItem from="1676488621957" duration="6958000" />
       <workItem from="1676555406974" duration="16123000" />
-      <workItem from="1676839426705" duration="10987000" />
+      <workItem from="1676839426705" duration="13054000" />
+      <workItem from="1677209728167" duration="2947000" />
+      <workItem from="1677253022124" duration="424000" />
     </task>
     <task id="LOCAL-00001" summary="authentication">
       <created>1675871701867</created>
@@ -282,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676996652201</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Heroku deployment">
+      <created>1676996878488</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1676996878488</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
