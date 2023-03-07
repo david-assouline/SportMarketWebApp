@@ -11,5 +11,6 @@
     <orderEntry type="library" name="aws-sdk" level="application" />
     <orderEntry type="library" name="aws-sdk-2.1312.0" level="application" />
     <orderEntry type="library" name="aws-sdk-2.766.0" level="application" />
+    <orderEntry type="library" name="jquery-3.5.1" level="application" />
   </component>
 </module>
