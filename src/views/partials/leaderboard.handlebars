@@ -1,0 +1,77 @@
+
+<div class="container" onload="generateLeaderboard()">
+    <h1 class="text-center">Leaderboard</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Username</th>
+            <th scope="col">Score</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+<!--        <tr>-->
+<!--            <td>1</td>-->
+<!--            <td>John Doe</td>-->
+<!--            <td>100</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>2</td>-->
+<!--            <td>Jane Doe</td>-->
+<!--            <td>90</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>3</td>-->
+<!--            <td>Bob Smith</td>-->
+<!--            <td>80</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>4</td>-->
+<!--            <td>Alice Jones</td>-->
+<!--            <td>70</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>5</td>-->
+<!--            <td>Tom Brown</td>-->
+<!--            <td>60</td>-->
+<!--        </tr>-->
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    async function getLeaderboard() {
+
+        const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/leaderboard';
+
+        const response = await fetch(baseUrl, {
+            method: 'GET',
+        })
+        return response.json();
+    }
+
+    async function generateLeaderboard() {
+        leaderboard_data = await getLeaderboard();
+        console.log(leaderboard_data)
+        // var data = user_portfolio;
+
+        var tableBody = document.getElementById("tableBody");
+        tableBody.innerHTML = "";
+
+        leaderboard_data.forEach(function(value, key) {
+            if (value <= 0) {
+                return
+            }
+            var row = tableBody.insertRow();
+            var team_cell = row.insertCell(0);
+            var shares_owned_cell = row.insertCell(1);
+            var current_price_cell = row.insertCell(2);
+            var total_value_cell = row.insertCell(3);
+            team_cell.innerHTML = key;
+            shares_owned_cell.innerHTML = value;
+            current_price_cell.innerHTML = parseFloat(leaderboard_data[key]).toFixed(2);
+            total_value_cell.innerHTML = "$" + (parseFloat(leaderboard_data[key]) * parseFloat(value)).toFixed(2).toString();
+        });
+    }
+</script>

@@ -53,11 +53,35 @@
         border-top: 20px solid darkred;
     }
 </style>
-<body onload="loadTicker()">
+<body onload="loadTicker(); generateLeaderboard()">
 <br>
 
-<div class="hwrap"><div class="hmove" id="tickerDiv">
-</div></div>
+<div class="hwrap"><div class="hmove" id="tickerDiv"></div></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="container" onload="">
+                <h1 class="text-center">Leaderboard</h1>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
 
 <br>
 
@@ -117,6 +141,42 @@
                 container.appendChild(newDiv);
             }
 
+        });
+    }
+
+    async function getLeaderboard() {
+
+        const baseUrl = 'https://z340b62ka1.execute-api.us-east-2.amazonaws.com/leaderboard';
+
+        const response = await fetch(baseUrl, {
+            method: 'GET',
+        })
+        return response.json();
+    }
+
+    async function generateLeaderboard() {
+        var leaderboard_data = await getLeaderboard();
+
+        var leaderboard_map = new Map([...Object.entries(leaderboard_data)])
+        const sortedArray = [...leaderboard_map.entries()].sort((a, b) => b[1] - a[1]);
+        console.log(sortedArray)
+
+        var tableBody = document.getElementById("tableBody");
+        tableBody.innerHTML = "";
+        let counter = 1;
+
+        sortedArray.forEach(function(value, key) {
+            if (value <= 0) {
+                return
+            }
+            var row = tableBody.insertRow();
+            var rank_cell = row.insertCell(0);
+            var username_cell = row.insertCell(1);
+            var total_cell = row.insertCell(2);
+            rank_cell.innerHTML = counter;
+            counter += 1;
+            username_cell.innerHTML = value[0];
+            total_cell.innerHTML = parseFloat(value[1]).toFixed(2);
         });
     }
 
