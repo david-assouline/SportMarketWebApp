@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="Added leaderboard to home">
+    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="Various additions including history card in portfolio page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/portfolio.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/portfolio.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/partials/navbar.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/navbar.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +119,7 @@
       <workItem from="1677257067075" duration="2678000" />
       <workItem from="1678163839693" duration="12181000" />
       <workItem from="1678592225613" duration="1576000" />
-      <workItem from="1678594795292" duration="4592000" />
+      <workItem from="1678594795292" duration="5770000" />
     </task>
     <task id="LOCAL-00001" summary="authentication">
       <created>1675871701867</created>
@@ -339,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678229860860</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Various additions including history card in portfolio page">
+      <created>1678661602158</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1678661602158</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,6 +387,7 @@
     <MESSAGE value="changes to home ticker" />
     <MESSAGE value="Heroku deployment" />
     <MESSAGE value="Added leaderboard to home" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added leaderboard to home" />
+    <MESSAGE value="Various additions including history card in portfolio page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Various additions including history card in portfolio page" />
   </component>
 </project>
