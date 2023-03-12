@@ -98,7 +98,6 @@
         }).then(response => response.text())
                 .then(data => {
                     price_data_today = new Map(Object.entries(JSON.parse(data)));
-                    console.log(price_data_today);
                 });
     }
 
@@ -111,7 +110,6 @@
         }).then(response => response.text())
                 .then(data => {
                     price_data_yesterday = new Map(Object.entries(JSON.parse(data)));
-                    console.log(price_data_yesterday);
                 });
     }
 
@@ -158,6 +156,7 @@
         var leaderboard_data = await getLeaderboard();
 
         var leaderboard_map = new Map([...Object.entries(leaderboard_data)])
+        console.log(leaderboard_map)
         const sortedArray = [...leaderboard_map.entries()].sort((a, b) => b[1] - a[1]);
         console.log(sortedArray)
 

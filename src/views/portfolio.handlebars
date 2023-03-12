@@ -9,77 +9,109 @@
 <body onload="getPortfolio();getUserBalance()">
 
 
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h1 style="text-align: center">My Portfolio</h1>
-            <table class="table" id="myTable">
-                <thead>
-                <tr>
-                    <th scope="col">Team</th>
-                    <th scope="col">Shares Owned</th>
-                    <th scope="col">Current Price</th>
-                    <th scope="col">Total</th>
-                </tr>
-                </thead>
-                <tbody id="tableBody">
-                </tbody>
-            </table>
-            <h3 id="balanceField" style="display:flex; padding: 5px; justify-content: center;align-items: center;"></h3>
-            <div style="display:flex; padding: 10px; justify-content: center;align-items: center;">
-                <button type="button" class="btn btn-dark" style="margin: 5px" onclick="toggleBuyForm()">Buy</button>
-                <button type="button" class="btn btn-dark" style="margin: 5px" onclick="toggleSellForm()">Sell</button>
+<section style="background-color: #eee;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4" style="margin-top: 20px">
+                    <div class="card-body text-center">
+                        <h1 style="text-align: center">Trade</h1>
+                        <div style="display:flex; padding: 10px; justify-content: center;align-items: center;">
+                            <button type="button" class="btn btn-dark" style="margin: 5px" onclick="toggleBuyForm()">Buy</button>
+                            <button type="button" class="btn btn-dark" style="margin: 5px" onclick="toggleSellForm()">Sell</button>
+                        </div>
+                        <!--buy form-->
+                        <form>
+                            <div class="form-group" id="buyForm" style="display: block;">
+                                <label for="stock">Select a team:</label>
+                                <select class="form-control" id="buyTeamDropdown" oninput="calculateBuyPrice()">
+                                    <option id="Montreal Canadiens">Montreal Canadiens</option>
+                                    <option id="Toronto Maple Leafs">Toronto Maple Leafs</option>
+                                    <option id="Boston Bruins">Boston Bruins</option>
+                                    <option id="Chicago Blackhawks">Chicago Blackhawks</option>
+                                    <option id="New York Rangers">New York Rangers</option>
+                                    <option id="Detroit Red Wings">Detroit Red Wings</option>
+                                </select>
+                                <label for="quantity">Quantity</label>
+                                <input type="number" class="form-control" id="buyQuantity" placeholder="Enter quantity" oninput="calculateBuyPrice()">
+                                <label for="price">Estimated Purchase Cost</label>
+                                <input type="text" class="form-control" id="totalBuyCost" value="0.00" readonly>
+                                <br>
+                                <div style="text-align: center">
+                                    <button type="submit" class="btn btn-dark" onclick="submitBuyOrder()">Confirm Buy Order</button>
+                                </div>
+                                <br>
+                            </div>
+                        </form>
+                        <!--sell form-->
+                        <form>
+                            <div class="form-group" id="sellForm" style="display: none;">
+                                <label for="stock">Select a team:</label>
+                                <select class="form-control" id="sellTeamDropdown" oninput="calculateSellPrice()">
+                                    <option id="Montreal Canadiens">Montreal Canadiens</option>
+                                    <option id="Toronto Maple Leafs">Toronto Maple Leafs</option>
+                                    <option id="Boston Bruins">Boston Bruins</option>
+                                    <option id="Chicago Blackhawks">Chicago Blackhawks</option>
+                                    <option id="New York Rangers">New York Rangers</option>
+                                    <option id="Detroit Red Wings">Detroit Red Wings</option>
+                                </select>
+                                <label for="quantity">Quantity</label>
+                                <input type="number" class="form-control" id="sellQuantity" placeholder="Enter quantity" oninput="calculateSellPrice()">
+                                <label for="price">Estimated Sale Proceeds</label>
+                                <input type="text" class="form-control" id="totalSell" value="0.00" readonly>
+                                <br>
+                                <div style="text-align: center">
+                                    <button type="submit" class="btn btn-dark" onclick="submitSellOrder()">Confirm Sell Order</button>
+                                </div>
+                                <br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <!--buy form-->
-            <form>
-                <div class="form-group" id="buyForm" style="display: none;">
-                    <label for="stock">Select a team:</label>
-                    <select class="form-control" id="buyTeamDropdown" oninput="calculateBuyPrice()">
-                        <option id="Montreal Canadiens">Montreal Canadiens</option>
-                        <option id="Toronto Maple Leafs">Toronto Maple Leafs</option>
-                        <option id="Boston Bruins">Boston Bruins</option>
-                        <option id="Chicago Blackhawks">Chicago Blackhawks</option>
-                        <option id="New York Rangers">New York Rangers</option>
-                        <option id="Detroit Red Wings">Detroit Red Wings</option>
-                    </select>
-                    <label for="quantity">Quantity</label>
-                    <input type="number" class="form-control" id="buyQuantity" placeholder="Enter quantity" oninput="calculateBuyPrice()">
-                    <label for="price">Estimated Purchase Cost</label>
-                    <input type="text" class="form-control" id="totalBuyCost" value="0.00" readonly>
-                    <br>
-                    <div style="text-align: center">
-                        <button type="submit" class="btn btn-dark" onclick="submitBuyOrder()">Confirm Buy Order</button>
+            <div class="col-lg-4">
+                <div class="card mb-4" style="margin-top: 20px">
+                    <div class="card-body text-center">
+                        <h1 style="text-align: center">My Portfolio</h1>
+                        <table class="table" id="myTable">
+                            <thead>
+                            <tr>
+                                <th scope="col">Team</th>
+                                <th scope="col">Shares Owned</th>
+                                <th scope="col">Current Price</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+                        <h3 id="balanceField" style="display:flex; padding: 5px; justify-content: center;align-items: center;"></h3>
                     </div>
-                    <br>
                 </div>
-            </form>
-            <!--sell form-->
-            <form>
-                <div class="form-group" id="sellForm" style="display: none;">
-                    <label for="stock">Select a team:</label>
-                    <select class="form-control" id="sellTeamDropdown" oninput="calculateSellPrice()">
-                        <option id="Montreal Canadiens">Montreal Canadiens</option>
-                        <option id="Toronto Maple Leafs">Toronto Maple Leafs</option>
-                        <option id="Boston Bruins">Boston Bruins</option>
-                        <option id="Chicago Blackhawks">Chicago Blackhawks</option>
-                        <option id="New York Rangers">New York Rangers</option>
-                        <option id="Detroit Red Wings">Detroit Red Wings</option>
-                    </select>
-                    <label for="quantity">Quantity</label>
-                    <input type="number" class="form-control" id="sellQuantity" placeholder="Enter quantity" oninput="calculateSellPrice()">
-                    <label for="price">Estimated Sale Proceeds</label>
-                    <input type="text" class="form-control" id="totalSell" value="0.00" readonly>
-                    <br>
-                    <div style="text-align: center">
-                        <button type="submit" class="btn btn-dark" onclick="submitSellOrder()">Confirm Sell Order</button>
+            </div>
+            <div class="col-lg-4">
+                <div class="card mb-4" style="margin-top: 20px">
+                    <div class="card-body text-center">
+                        <h1 style="text-align: center">History</h1>
+                        <table class="table" id="historyTable">
+                            <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Team</th>
+                                <th scope="col">Shares</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody id="historyTableBody">
+                            </tbody>
+                        </table>
                     </div>
-                    <br>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 <style>
     .col-md-6 {
@@ -89,6 +121,7 @@
 
 <script>
     let user_portfolio = new Map();
+    let user_transaction_history = new Map();
     let price_data = new Map();
 
     function getPortfolio() {
@@ -105,8 +138,8 @@
             method: 'GET',
         }).then(response => response.text())
                 .then(data => {
-                    console.log(JSON.parse(data))
-                    user_portfolio = new Map(Object.entries(JSON.parse(data)));
+                    user_portfolio = new Map(Object.entries(JSON.parse(data)["user_portfolio"]));
+                    user_transaction_history = new Map(Object.entries(JSON.parse(data)["transaction_history"]));
                     generateTable()
                 });
     }
@@ -124,14 +157,12 @@
     async function generateTable() {
 
         price_data = await getPrices();
-        console.log(price_data)
-        var data = user_portfolio;
 
         // Get the table body element
         var tableBody = document.getElementById("tableBody");
         tableBody.innerHTML = "";
 
-        data.forEach(function(value, key) {
+        user_portfolio.forEach(function(value, key) {
             if (value <= 0) {
                 return
             }
@@ -144,6 +175,29 @@
             shares_owned_cell.innerHTML = value;
             current_price_cell.innerHTML = parseFloat(price_data[key]).toFixed(2);
             total_value_cell.innerHTML = "$" + (parseFloat(price_data[key]) * parseFloat(value)).toFixed(2).toString();
+        });
+
+        var historyTableBody = document.getElementById("historyTableBody");
+        historyTableBody.innerHTML = "";
+        console.log(user_transaction_history)
+
+        user_transaction_history.forEach(function(value, key) {
+            console.log("key: " + key)
+            console.log("value: " + value)
+            if (value <= 0) {
+                return
+            }
+            var row = historyTableBody.insertRow();
+            var date_cell = row.insertCell(0);
+            var type_cell = row.insertCell(1);
+            var team_cell = row.insertCell(2);
+            var shares_cell = row.insertCell(3);
+            var total_cell = row.insertCell(4);
+            date_cell.innerHTML = key;
+            type_cell.innerHTML = value["transaction_type"];
+            team_cell.innerHTML = value["team_name"];
+            shares_cell.innerHTML = value["transaction_quantity"];
+            total_cell.innerHTML = "$" + parseFloat(value["transaction_total"]).toFixed(2).toString();
         });
     }
 
