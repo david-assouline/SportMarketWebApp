@@ -32,10 +32,20 @@
                                     <option id="New York Rangers">New York Rangers</option>
                                     <option id="Detroit Red Wings">Detroit Red Wings</option>
                                 </select>
-                                <label for="quantity">Quantity</label>
-                                <input type="number" class="form-control" id="buyQuantity" placeholder="Enter quantity" oninput="calculateBuyPrice()">
-                                <label for="price">Estimated Purchase Cost</label>
-                                <input type="text" class="form-control" id="totalBuyCost" value="0.00" readonly>
+                                <div style="margin-top: 10px">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="number" class="form-control" id="buyQuantity" placeholder="Enter quantity" oninput="calculateBuyPrice()">
+                                </div>
+                                <div class="row" style="margin-top: 10px">
+                                    <div class="col-6">
+                                        <label for="price">Price</label>
+                                        <input type="text" class="form-control" id="buyFormPricePerShare" disabled>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="price">Purchase Cost</label>
+                                        <input type="text" class="form-control" id="totalBuyCost" value="0.00" disabled>
+                                    </div>
+                                </div>
                                 <br>
                                 <div style="text-align: center">
                                     <button type="submit" class="btn btn-dark" onclick="submitBuyOrder()">Confirm Buy Order</button>
@@ -55,10 +65,20 @@
                                     <option id="New York Rangers">New York Rangers</option>
                                     <option id="Detroit Red Wings">Detroit Red Wings</option>
                                 </select>
-                                <label for="quantity">Quantity</label>
-                                <input type="number" class="form-control" id="sellQuantity" placeholder="Enter quantity" oninput="calculateSellPrice()">
-                                <label for="price">Estimated Sale Proceeds</label>
-                                <input type="text" class="form-control" id="totalSell" value="0.00" readonly>
+                                <div style="margin-top: 10px">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="number" class="form-control" id="sellQuantity" placeholder="Enter quantity" oninput="calculateSellPrice()">
+                                </div>
+                                <div class="row"style="margin-top: 10px">
+                                    <div class="col-6">
+                                        <label for="price">Price</label>
+                                        <input type="text" class="form-control" id="sellFormPricePerShare" disabled>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="price">Sale Total</label>
+                                        <input type="text" class="form-control" id="totalSell" value="0.00" disabled>
+                                    </div>
+                                </div>
                                 <br>
                                 <div style="text-align: center">
                                     <button type="submit" class="btn btn-dark" onclick="submitSellOrder()">Confirm Sell Order</button>
@@ -181,7 +201,14 @@
         historyTableBody.innerHTML = "";
         console.log(user_transaction_history)
 
-        user_transaction_history.forEach(function(value, key) {
+
+        const transaction_history_array = Array.from(user_transaction_history.entries());
+        const lastFiveTransactions = transaction_history_array.slice(-5);
+        const reversedLastFiveTransactions = lastFiveTransactions.reverse();
+        const lastFiveMap = new Map(reversedLastFiveTransactions);
+
+
+        lastFiveMap.forEach(function(value, key) {
             console.log("key: " + key)
             console.log("value: " + value)
             if (value <= 0) {
@@ -199,6 +226,7 @@
             shares_cell.innerHTML = value["transaction_quantity"];
             total_cell.innerHTML = "$" + parseFloat(value["transaction_total"]).toFixed(2).toString();
         });
+
     }
 
     async function getUserBalance() {
@@ -255,6 +283,8 @@
         var dropdownValue = document.getElementById("buyTeamDropdown").value;
         var calculateBuyField = document.getElementById("totalBuyCost");
         calculateBuyField.value = (price_data[dropdownValue] * document.getElementById("buyQuantity").value).toFixed(2);
+        var pricePerShareField = document.getElementById("buyFormPricePerShare");
+        pricePerShareField.value = price_data[dropdownValue]
     }
 
     function calculateSellPrice() {
@@ -263,6 +293,8 @@
 
         var calculateBuyField = document.getElementById("totalSell");
         calculateBuyField.value = (price_data[dropdownValue] * document.getElementById("sellQuantity").value).toFixed(2);
+        var pricePerShareField = document.getElementById("sellFormPricePerShare");
+        pricePerShareField.value = price_data[dropdownValue]
     }
 
     function submitBuyOrder() {
