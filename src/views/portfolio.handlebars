@@ -86,6 +86,7 @@
                                 <br>
                             </div>
                         </form>
+                        <h3 id="balanceField" style="display:flex; padding: 5px; justify-content: center;align-items: center;"></h3>
                     </div>
                 </div>
             </div>
@@ -105,7 +106,7 @@
                             <tbody id="tableBody">
                             </tbody>
                         </table>
-                        <h3 id="balanceField" style="display:flex; padding: 5px; justify-content: center;align-items: center;"></h3>
+                        <h3 id="totalAssetsField" style="display:flex; padding: 5px; justify-content: center;align-items: center;"></h3>
                     </div>
                 </div>
             </div>
@@ -181,6 +182,7 @@
         // Get the table body element
         var tableBody = document.getElementById("tableBody");
         tableBody.innerHTML = "";
+        var totalAssetsAmount = 0;
 
         user_portfolio.forEach(function(value, key) {
             if (value <= 0) {
@@ -195,7 +197,11 @@
             shares_owned_cell.innerHTML = value;
             current_price_cell.innerHTML = parseFloat(price_data[key]).toFixed(2);
             total_value_cell.innerHTML = "$" + (parseFloat(price_data[key]) * parseFloat(value)).toFixed(2).toString();
+            totalAssetsAmount += parseFloat(price_data[key]) * parseFloat(value)
         });
+
+        document.getElementById("totalAssetsField").innerHTML = "Total Assets: $" + totalAssetsAmount.toFixed(2);
+
 
         var historyTableBody = document.getElementById("historyTableBody");
         historyTableBody.innerHTML = "";

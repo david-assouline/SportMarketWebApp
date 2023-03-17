@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="minor fixes to ticker">
+    <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="changes to portfolio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/portfolio.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/portfolio.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +119,7 @@
       <workItem from="1678163839693" duration="12181000" />
       <workItem from="1678592225613" duration="1576000" />
       <workItem from="1678594795292" duration="8748000" />
-      <workItem from="1678847877845" duration="5942000" />
+      <workItem from="1678847877845" duration="7937000" />
     </task>
     <task id="LOCAL-00001" summary="authentication">
       <created>1675871701867</created>
@@ -360,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678663989544</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="changes to portfolio">
+      <created>1678991178731</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1678991178731</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +411,7 @@
     <MESSAGE value="Various additions including history card in portfolio page" />
     <MESSAGE value="fixed navbar toggler on mobile" />
     <MESSAGE value="minor fixes to ticker" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fixes to ticker" />
+    <MESSAGE value="changes to portfolio" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes to portfolio" />
   </component>
 </project>
