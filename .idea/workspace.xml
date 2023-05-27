@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bdbe414-603e-4827-b62a-270b8e63b7cd" name="Changes" comment="changes to portfolio">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/portfolio.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/portfolio.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +82,7 @@
       <recent name="C:\Users\david\Desktop\SportMarketWebApp\src\cognito" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
+  <component name="RunManager" selected="Node.js.app.js">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SportMarketWebApp/src/html/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -120,6 +122,7 @@
       <workItem from="1678592225613" duration="1576000" />
       <workItem from="1678594795292" duration="8748000" />
       <workItem from="1678847877845" duration="7937000" />
+      <workItem from="1685216577957" duration="1997000" />
     </task>
     <task id="LOCAL-00001" summary="authentication">
       <created>1675871701867</created>
